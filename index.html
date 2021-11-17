@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><title>Document</title>
+</head>
+<body>
+    <div id="contenedor" style="width: 80%; display: block;  margin: 20px auto;">
+    <h1>Número mayor</h1>
+    <div class="mb-3">
+        <label for="n1" class="form-label">Número 1:</label>
+        <input type="number" class="form-control" id="n1">
+        <strong></strong><p class="form-label" id="n1Entero"></p>
+      </div>
+      <div class="mb-3">
+        <label for="n2" class="form-label">Número 2:</label>
+        <input type="number" class="form-control" id="n2">
+        <p class="form-label" id="n2Entero"></p>
+      </div>
+      <div class="mb-3">
+        <label for="n3" class="form-label">Número 3:</label>
+        <input type="number" class="form-control" id="n3">
+        <p class="form-label" id="n3Entero"></p>
+      </div>
+      <button type="submit" id="calcular" class="btn btn-primary">Comprobar</button>
+    </div>
+    <script>
+        
+        let btn = document.getElementById('calcular');
+        btn.addEventListener('click',()=>{
+            let regex = '/^[0-9]+$/ ';
+            if (regex.match(n1) && regex.match(n2) && regex.match(n3)){
+                let n1 = document.getElementById('n1').value;
+                let n2 = document.getElementById('n2').value;
+                let n3 = document.getElementById('n3').value;
+                
+                alert(`El mayor es: ${Math.max(n1,n2,n3)}`);
+                
+                if(Number.isInteger(parseInt(n1))){
+                    document.getElementById('n1Entero').innerHTML = 'Es entero';
+                    alert(`n1 es entero`)
+                }
+                else if(! Number.isInteger(parseInt(n1))){
+                    document.getElementById('n1Entero').innerHTML = 'No es entero';
+                }
+                if(Number.isInteger(parseInt(n2))){
+                    document.getElementById('n2Entero').innerHTML = 'Es entero';
+                    alert(`n2 es entero`)
+                }
+                else if(! Number.isInteger(parseInt(n2))){
+                    document.getElementById('n2Entero').innerHTML = 'No es entero';
+                }
+                if(Number.isInteger(parseInt(n3))){
+                    document.getElementById('n3Entero').innerHTML = 'Es entero';
+                    alert(`n3 es entero`)
+                }
+                else if(! Number.isInteger(parseInt(n3))){
+                    document.getElementById('n3Entero').innerHTML = 'No es entero';
+                }
+            } else {
+            alert ("Todos los valores deben ser numéricos");
+            }
+            
+        })
+
+
+
+
+
+        
+    </script>
+    
+</body>
+</html>
